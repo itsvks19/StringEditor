@@ -1,20 +1,35 @@
 package com.raredev.stringeditor.adapter;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.raredev.stringeditor.R;
 import com.raredev.stringeditor.StringModel;
+import com.raredev.stringeditor.callback.ItemMoveCallBack;
+import java.util.Collections;
 import java.util.List;
 
-public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
+public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH>
+    implements ItemMoveCallBack.ItemMoveListener {
   private List<StringModel> listStrings;
+  
+  private ItemTouchHelper touchHelper;
   private StringListener listener;
-
+  
   public StringsAdapter(List<StringModel> listStrings) {
     this.listStrings = listStrings;
+  }
+
+  @Override
+  public boolean onItemMove(int fromPosition, int toPosition) {
+    Collections.swap(listStrings, fromPosition, toPosition);
+    notifyItemMoved(fromPosition, toPosition);
+    return true;
   }
 
   @Override
@@ -39,6 +54,21 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
           listener.onStringLongClick(v, position);
           return true;
         });
+    
+    holder.imgDrag.setOnTouchListener(
+          new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+              if(event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                  touchHelper.startDrag(holder);
+              }
+              return false;
+            }
+          });
+  }
+  
+  public void setTouchHelper(ItemTouchHelper touchHelper) {
+    this.touchHelper = touchHelper;
   }
 
   public void setStringListener(StringListener listener) {
@@ -57,13 +87,15 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
     return listStrings.size();
   }
 
-  class VH extends RecyclerView.ViewHolder {
-    TextView tvName, tvValue;
+  public class VH extends RecyclerView.ViewHolder {
+    public TextView tvName, tvValue;
+    public ImageView imgDrag;
 
     public VH(View v) {
       super(v);
       tvName = v.findViewById(R.id.name);
       tvValue = v.findViewById(R.id.value);
+      imgDrag = v.findViewById(R.id.icon_drag);
     }
   }
 }
