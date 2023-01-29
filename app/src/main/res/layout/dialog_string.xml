@@ -8,7 +8,7 @@
   android:padding="8dp">
 
   <com.google.android.material.textfield.TextInputLayout
-    android:hint="Enter name"
+    android:hint="String name:"
     app:hintAnimationEnabled="true"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
@@ -22,7 +22,7 @@
   </com.google.android.material.textfield.TextInputLayout>
 
   <com.google.android.material.textfield.TextInputLayout
-    android:hint="Enter value"
+    android:hint="String value:"
     app:hintAnimationEnabled="true"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"

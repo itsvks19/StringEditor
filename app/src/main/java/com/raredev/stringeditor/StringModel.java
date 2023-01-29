@@ -6,6 +6,12 @@ import android.os.Parcelable;
 public class StringModel {
   private String string_name;
   private String string_value;
+  
+  public StringModel() {}
+  public StringModel(String name, String value) {
+    setStringName(name);
+    setStringValue(value);
+  }
 
   public void setStringName(String string_name) {
     this.string_name = string_name;
