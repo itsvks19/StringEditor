@@ -1,0 +1,30 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_add
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_xml_attribute
+id app_bar
+id editor
+id fab
+id list_string
+id name
+id textinput_name
+id textinput_value
+id toolbar
+id value
+layout activity_main
+layout activity_showxml
+layout dialog_string
+layout string_item
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.MyApplication

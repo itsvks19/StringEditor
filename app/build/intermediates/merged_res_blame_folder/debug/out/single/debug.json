@@ -1,0 +1,86 @@
+[
+    {
+        "merged": "com.raredev.stringeditor.app-merged_res-33:/layout_string_item.xml.flat",
+        "source": "com.raredev.stringeditor.app-main-35:/layout/string_item.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/layout_activity_showxml.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/activity_showxml.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/layout_string_item.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/string_item.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/drawable_ic_add.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/drawable/ic_add.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/drawable_ic_xml_attribute.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/drawable/ic_xml_attribute.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/layout_activity_main.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-pngs-28:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-merged_res-33:/layout_dialog_string.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/dialog_string.xml"
+    }
+]
