@@ -10,68 +10,144 @@
 9        android:targetSdkVersion="33" />
 9-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml
 10
-11    <application
-11-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:6:3-26:17
-12        android:allowBackup="true"
-12-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:7:5-31
-13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.8.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
-14        android:debuggable="true"
-15        android:icon="@mipmap/ic_launcher"
-15-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:8:5-39
-16        android:label="@string/app_name"
-16-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:9:5-37
-17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:10:5-50
-18        android:supportsRtl="true"
-18-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:11:5-31
-19        android:theme="@style/Theme.MyApplication" >
-19-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:12:5-47
-20        <activity
-20-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:13:5-21:16
-21            android:name="com.raredev.stringeditor.MainActivity"
-21-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:14:7-35
-22            android:exported="true" >
-22-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:15:7-30
-23            <intent-filter>
-23-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:16:7-20:23
-24                <action android:name="android.intent.action.MAIN" />
-24-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:17:9-61
-24-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:17:17-58
-25
-26                <category android:name="android.intent.category.LAUNCHER" />
-26-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:19:9-69
-26-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:19:19-66
-27            </intent-filter>
-28        </activity>
-29        <activity
-29-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:22:5-24:32
-30            android:name="com.raredev.stringeditor.ShowXMLActivity"
-30-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:23:7-38
-31            android:exported="true" />
-31-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:24:7-30
-32
-33        <provider
-33-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
-34            android:name="androidx.startup.InitializationProvider"
-34-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:27:13-67
-35            android:authorities="com.raredev.stringeditor.androidx-startup"
-35-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:28:13-68
-36            android:exported="false" >
-36-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:29:13-37
-37            <meta-data
-37-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
-38                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-38-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:32:17-75
-39                android:value="androidx.startup" />
-39-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:33:17-49
-40            <meta-data
-40-->[androidx.lifecycle:lifecycle-process:2.4.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e55634d9f64084c32e36e8ba5887ea71/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
-41                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-41-->[androidx.lifecycle:lifecycle-process:2.4.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e55634d9f64084c32e36e8ba5887ea71/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
-42                android:value="androidx.startup" />
-42-->[androidx.lifecycle:lifecycle-process:2.4.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e55634d9f64084c32e36e8ba5887ea71/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
-43        </provider>
-44    </application>
-45
-46</manifest>
+11    <queries>
+11-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:9:5-16:15
+12        <intent>
+12-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:10:9-12:18
+13            <action android:name="android.intent.action.MAIN" />
+13-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:18:9-61
+13-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:18:17-58
+14        </intent>
+15        <intent>
+15-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:13:9-15:18
+16            <action android:name="android.intent.action.VIEW" />
+16-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:14:13-65
+16-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:14:21-62
+17        </intent>
+18    </queries>
+19
+20    <application
+20-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:6:3-27:17
+21        android:name="com.raredev.stringeditor.App"
+21-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:7:5-24
+22        android:allowBackup="true"
+22-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:8:5-31
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.7.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+24        android:debuggable="true"
+25        android:icon="@mipmap/ic_launcher"
+25-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:9:5-39
+26        android:label="@string/app_name"
+26-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:10:5-37
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:11:5-50
+28        android:supportsRtl="true"
+28-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:12:5-31
+29        android:theme="@style/Theme.MyApplication" >
+29-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:13:5-47
+30        <activity
+30-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:14:5-22:16
+31            android:name="com.raredev.stringeditor.MainActivity"
+31-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:15:7-35
+32            android:exported="true" >
+32-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:16:7-30
+33            <intent-filter>
+33-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:17:7-21:23
+34                <action android:name="android.intent.action.MAIN" />
+34-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:18:9-61
+34-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:18:17-58
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:20:9-69
+36-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:20:19-66
+37            </intent-filter>
+38        </activity>
+39        <activity
+39-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:23:5-25:32
+40            android:name="com.raredev.stringeditor.ShowXMLActivity"
+40-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:24:7-38
+41            android:exported="true" />
+41-->/storage/emulated/0/AndroidIDEProjects/StringEditor/app/src/main/AndroidManifest.xml:25:7-30
+42        <activity
+42-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:19:9-24:75
+43            android:name="com.blankj.utilcode.util.UtilsTransActivity4MainProcess"
+43-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:20:13-83
+44            android:configChanges="orientation|keyboardHidden|screenSize"
+44-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:21:13-74
+45            android:exported="false"
+45-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:22:13-37
+46            android:theme="@style/ActivityTranslucent"
+46-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:23:13-55
+47            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+47-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:24:13-72
+48        <activity
+48-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:25:9-31:75
+49            android:name="com.blankj.utilcode.util.UtilsTransActivity"
+49-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:26:13-71
+50            android:configChanges="orientation|keyboardHidden|screenSize"
+50-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:27:13-74
+51            android:exported="false"
+51-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:28:13-37
+52            android:multiprocess="true"
+52-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:29:13-40
+53            android:theme="@style/ActivityTranslucent"
+53-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:30:13-55
+54            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+54-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:31:13-72
+55
+56        <provider
+56-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:33:9-41:20
+57            android:name="com.blankj.utilcode.util.UtilsFileProvider"
+57-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:34:13-70
+58            android:authorities="com.raredev.stringeditor.utilcode.fileprovider"
+58-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:35:13-73
+59            android:exported="false"
+59-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:36:13-37
+60            android:grantUriPermissions="true" >
+60-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:37:13-47
+61            <meta-data
+61-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:38:13-40:68
+62                android:name="android.support.FILE_PROVIDER_PATHS"
+62-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:39:17-67
+63                android:resource="@xml/util_code_provider_paths" />
+63-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:40:17-65
+64        </provider>
+65
+66        <service
+66-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:43:9-49:19
+67            android:name="com.blankj.utilcode.util.MessengerUtils$ServerService"
+67-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:44:13-81
+68            android:exported="false" >
+68-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:45:13-37
+69            <intent-filter>
+69-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:46:13-48:29
+70                <action android:name="com.raredev.stringeditor.messenger" />
+70-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:47:17-69
+70-->[com.blankj:utilcodex:1.31.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/1002c693c08de626bb9fa5df1545fb50/transformed/utilcodex-1.31.1/AndroidManifest.xml:47:25-66
+71            </intent-filter>
+72        </service>
+73
+74        <provider
+74-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+75            android:name="androidx.startup.InitializationProvider"
+75-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:27:13-67
+76            android:authorities="com.raredev.stringeditor.androidx-startup"
+76-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:28:13-68
+77            android:exported="false" >
+77-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:29:13-37
+78            <meta-data
+78-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+79                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+79-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:32:17-75
+80                android:value="androidx.startup" />
+80-->[androidx.emoji2:emoji2:1.0.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/7f8ebbd033d1ca2cf62aa8d36b29a84a/transformed/emoji2-1.0.0/AndroidManifest.xml:33:17-49
+81            <meta-data
+81-->[androidx.lifecycle:lifecycle-process:2.4.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e55634d9f64084c32e36e8ba5887ea71/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+82                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+82-->[androidx.lifecycle:lifecycle-process:2.4.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e55634d9f64084c32e36e8ba5887ea71/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+83                android:value="androidx.startup" />
+83-->[androidx.lifecycle:lifecycle-process:2.4.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e55634d9f64084c32e36e8ba5887ea71/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+84        </provider>
+85    </application>
+86
+87</manifest>

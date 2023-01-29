@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-bn/values-bn.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-bn/values-bn.xml",
             "map": [
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-bn/values-bn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7388",
+                        "endColumns": "100",
+                        "endOffsets": "7484"
+                    }
+                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e6e7e7431371425591a6dcce97dcc316/transformed/appcompat-1.4.2/res/values-bn/values-bn.xml",
                     "from": {
@@ -18,23 +35,6 @@
                         "startOffsets": "276,384,490,596,685,790,911,994,1076,1167,1260,1354,1448,1548,1641,1736,1830,1921,2012,2098,2208,2312,2415,2523,2631,2736,2901,7301",
                         "endColumns": "107,105,105,88,104,120,82,81,90,92,93,93,99,92,94,93,90,90,85,109,103,102,107,107,104,164,104,86",
                         "endOffsets": "379,485,591,680,785,906,989,1071,1162,1255,1349,1443,1543,1636,1731,1825,1916,2007,2093,2203,2307,2410,2518,2626,2731,2896,3001,7383"
-                    }
-                },
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-bn/values-bn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7388",
-                        "endColumns": "100",
-                        "endOffsets": "7484"
                     }
                 },
                 {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/0fa0ed0811619365b87acfe6c06470d6/transformed/editor-0.21.0/res/values-night-v8/values-night-v8.xml",

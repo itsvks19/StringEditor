@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-hi/values-hi.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-hi/values-hi.xml",
             "map": [
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-hi/values-hi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7371",
-                        "endColumns": "100",
-                        "endOffsets": "7467"
-                    }
-                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e7109d1dbae3086876b1f573d1dc20c7/transformed/material-1.6.1/res/values-hi/values-hi.xml",
                     "from": {
@@ -54,6 +37,23 @@
                         "startOffsets": "264,370,468,578,664,766,887,965,1042,1133,1226,1321,1415,1515,1608,1703,1797,1888,1979,2060,2165,2267,2365,2475,2578,2687,2845,7289",
                         "endColumns": "105,97,109,85,101,120,77,76,90,92,94,93,99,92,94,93,90,90,80,104,101,97,109,102,108,157,100,81",
                         "endOffsets": "365,463,573,659,761,882,960,1037,1128,1221,1316,1410,1510,1603,1698,1792,1883,1974,2055,2160,2262,2360,2470,2573,2682,2840,2941,7366"
+                    }
+                },
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-hi/values-hi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7371",
+                        "endColumns": "100",
+                        "endOffsets": "7467"
                     }
                 }
             ]

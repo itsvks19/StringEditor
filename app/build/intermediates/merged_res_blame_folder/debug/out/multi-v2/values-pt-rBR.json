@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-pt-rBR/values-pt-rBR.xml",
             "map": [
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-pt-rBR/values-pt-rBR.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7522",
-                        "endColumns": "100",
-                        "endOffsets": "7618"
-                    }
-                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e7109d1dbae3086876b1f573d1dc20c7/transformed/material-1.6.1/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
@@ -37,6 +20,23 @@
                         "endLines": "5,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86",
                         "endColumns": "12,83,100,119,80,63,91,78,59,89,70,62,74,63,53,126,57,61,53,78,140,86,81,108,82,83,86,66,65,73,79,86,72,76,68,73,87,76,92,95,73,79,96,51,65,86,87,61,63,62,111,108,106,109,76",
                         "endOffsets": "273,3095,3196,3316,3397,3461,3553,3632,3692,3782,3853,3916,3991,4055,4109,4236,4294,4356,4410,4489,4630,4717,4799,4908,4991,5075,5162,5229,5295,5369,5449,5536,5609,5686,5755,5829,5917,5994,6087,6183,6257,6337,6434,6486,6552,6639,6727,6789,6853,6916,7028,7137,7244,7354,7431"
+                    }
+                },
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-pt-rBR/values-pt-rBR.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7522",
+                        "endColumns": "100",
+                        "endOffsets": "7618"
                     }
                 },
                 {

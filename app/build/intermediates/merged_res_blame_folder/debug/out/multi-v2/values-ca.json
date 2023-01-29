@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-ca/values-ca.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-ca/values-ca.xml",
             "map": [
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-ca/values-ca.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7585",
-                        "endColumns": "100",
-                        "endOffsets": "7681"
-                    }
-                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e7109d1dbae3086876b1f573d1dc20c7/transformed/material-1.6.1/res/values-ca/values-ca.xml",
                     "from": {
@@ -54,6 +37,23 @@
                         "startOffsets": "279,402,507,614,697,803,929,1013,1092,1183,1276,1369,1464,1562,1655,1748,1842,1933,2024,2105,2216,2324,2422,2532,2637,2745,2905,7503",
                         "endColumns": "122,104,106,82,105,125,83,78,90,92,92,94,97,92,92,93,90,90,80,110,107,97,109,104,107,159,98,81",
                         "endOffsets": "397,502,609,692,798,924,1008,1087,1178,1271,1364,1459,1557,1650,1743,1837,1928,2019,2100,2211,2319,2417,2527,2632,2740,2900,2999,7580"
+                    }
+                },
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-ca/values-ca.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7585",
+                        "endColumns": "100",
+                        "endOffsets": "7681"
                     }
                 }
             ]

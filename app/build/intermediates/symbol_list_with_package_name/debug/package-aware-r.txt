@@ -2385,6 +2385,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable content_copy
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -2456,6 +2457,7 @@ drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable utils_toast_bg
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -2669,6 +2671,10 @@ id info
 id invisible
 id inward
 id italic
+id item1
+id item2
+id item3
+id item4
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
@@ -2905,10 +2911,13 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id utvBottomIconView
+id utvLeftIconView
+id utvRightIconView
+id utvTopIconView
 id value
 id view_offset_helper
 id view_tree_lifecycle_owner
-id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
@@ -3108,6 +3117,9 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout utils_toast_view
+menu example_menu
+menu example_menu2
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -3246,6 +3258,7 @@ string replacement
 string search_menu_title
 string status_bar_notification_info_overflow
 string text_to_search
+style ActivityTranslucent
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
@@ -4449,3 +4462,4 @@ xml standalone_badge_gravity_bottom_end
 xml standalone_badge_gravity_bottom_start
 xml standalone_badge_gravity_top_start
 xml standalone_badge_offset
+xml util_code_provider_paths

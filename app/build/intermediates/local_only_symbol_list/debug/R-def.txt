@@ -7,6 +7,7 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable content_copy
 drawable ic_add
 drawable ic_launcher_background
 drawable ic_launcher_foreground

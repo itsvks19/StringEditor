@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-nl/values-nl.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-nl/values-nl.xml",
             "map": [
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e7109d1dbae3086876b1f573d1dc20c7/transformed/material-1.6.1/res/values-nl/values-nl.xml",
@@ -23,6 +23,23 @@
                     }
                 },
                 {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-nl/values-nl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7443",
+                        "endColumns": "100",
+                        "endOffsets": "7539"
+                    }
+                },
+                {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e6e7e7431371425591a6dcce97dcc316/transformed/appcompat-1.4.2/res/values-nl/values-nl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
@@ -37,23 +54,6 @@
                         "startOffsets": "274,392,497,604,689,793,913,991,1067,1159,1253,1348,1442,1542,1636,1732,1827,1919,2011,2093,2204,2307,2406,2521,2635,2738,2893,7360",
                         "endColumns": "117,104,106,84,103,119,77,75,91,93,94,93,99,93,95,94,91,91,81,110,102,98,114,113,102,154,102,82",
                         "endOffsets": "387,492,599,684,788,908,986,1062,1154,1248,1343,1437,1537,1631,1727,1822,1914,2006,2088,2199,2302,2401,2516,2630,2733,2888,2991,7438"
-                    }
-                },
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-nl/values-nl.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7443",
-                        "endColumns": "100",
-                        "endOffsets": "7539"
                     }
                 }
             ]

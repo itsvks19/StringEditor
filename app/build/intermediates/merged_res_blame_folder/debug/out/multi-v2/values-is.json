@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-is/values-is.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-is/values-is.xml",
             "map": [
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-is/values-is.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7318",
-                        "endColumns": "100",
-                        "endOffsets": "7414"
-                    }
-                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e7109d1dbae3086876b1f573d1dc20c7/transformed/material-1.6.1/res/values-is/values-is.xml",
                     "from": {
@@ -54,6 +37,23 @@
                         "startOffsets": "275,375,472,584,669,770,884,965,1044,1135,1228,1321,1415,1521,1614,1709,1804,1895,1989,2070,2180,2287,2384,2493,2593,2696,2851,7237",
                         "endColumns": "99,96,111,84,100,113,80,78,90,92,92,93,105,92,94,94,90,93,80,109,106,96,108,99,102,154,97,80",
                         "endOffsets": "370,467,579,664,765,879,960,1039,1130,1223,1316,1410,1516,1609,1704,1799,1890,1984,2065,2175,2282,2379,2488,2588,2691,2846,2944,7313"
+                    }
+                },
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-is/values-is.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7318",
+                        "endColumns": "100",
+                        "endOffsets": "7414"
                     }
                 }
             ]

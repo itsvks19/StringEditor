@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-te/values-te.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-te/values-te.xml",
             "map": [
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-te/values-te.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7555",
+                        "endColumns": "100",
+                        "endOffsets": "7651"
+                    }
+                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e6e7e7431371425591a6dcce97dcc316/transformed/appcompat-1.4.2/res/values-te/values-te.xml",
                     "from": {
@@ -37,23 +54,6 @@
                         "endLines": "5,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86",
                         "endColumns": "12,85,103,115,88,65,93,66,61,92,67,62,73,64,53,120,56,61,53,78,127,87,91,114,79,81,87,66,65,74,77,89,72,75,80,68,104,76,90,92,73,76,91,54,65,83,85,62,64,63,109,111,98,118,82",
                         "endOffsets": "276,3116,3220,3336,3425,3491,3585,3652,3714,3807,3875,3938,4012,4077,4131,4252,4309,4371,4425,4504,4632,4720,4812,4927,5007,5089,5177,5244,5310,5385,5463,5553,5626,5702,5783,5852,5957,6034,6125,6218,6292,6369,6461,6516,6582,6666,6752,6815,6880,6944,7054,7166,7265,7384,7467"
-                    }
-                },
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-te/values-te.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7555",
-                        "endColumns": "100",
-                        "endOffsets": "7651"
                     }
                 }
             ]

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e7109d1dbae3086876b1f573d1dc20c7/transformed/material-1.6.1/res/values-small-v4/values-small-v4.xml",

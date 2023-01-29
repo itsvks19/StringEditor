@@ -1,22 +1,18 @@
 [
     {
-        "merged": "com.raredev.stringeditor.app-mergeDebugResources-32:/layout/string_item.xml",
-        "source": "com.raredev.stringeditor.app-main-35:/layout/string_item.xml"
+        "merged": "com.raredev.stringeditor.app-mergeDebugResources-26:/layout/activity_showxml.xml",
+        "source": "com.raredev.stringeditor.app-main-29:/layout/activity_showxml.xml"
     },
     {
-        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-mergeDebugResources-32:/layout/string_item.xml",
-        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/string_item.xml"
+        "merged": "com.raredev.stringeditor.app-mergeDebugResources-26:/layout/dialog_string.xml",
+        "source": "com.raredev.stringeditor.app-main-29:/layout/dialog_string.xml"
     },
     {
-        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-mergeDebugResources-32:/layout/dialog_string.xml",
-        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/dialog_string.xml"
+        "merged": "com.raredev.stringeditor.app-mergeDebugResources-26:/layout/string_item.xml",
+        "source": "com.raredev.stringeditor.app-main-29:/layout/string_item.xml"
     },
     {
-        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-mergeDebugResources-32:/layout/activity_showxml.xml",
-        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/activity_showxml.xml"
-    },
-    {
-        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-mergeDebugResources-32:/layout/activity_main.xml",
-        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/7.5.1/com.raredev.stringeditor.app-main-35:/layout/activity_main.xml"
+        "merged": "com.raredev.stringeditor.app-mergeDebugResources-26:/layout/activity_main.xml",
+        "source": "com.raredev.stringeditor.app-main-29:/layout/activity_main.xml"
     }
 ]

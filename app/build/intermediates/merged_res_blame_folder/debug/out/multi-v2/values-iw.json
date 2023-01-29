@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-iw/values-iw.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-iw/values-iw.xml",
             "map": [
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-iw/values-iw.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "90",
-                        "startColumns": "4",
-                        "startOffsets": "7261",
-                        "endColumns": "100",
-                        "endOffsets": "7357"
-                    }
-                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e6e7e7431371425591a6dcce97dcc316/transformed/appcompat-1.4.2/res/values-iw/values-iw.xml",
                     "from": {
@@ -35,6 +18,23 @@
                         "startOffsets": "369,474,574,682,766,868,984,1063,1141,1232,1326,1420,1514,1614,1707,1802,1895,1986,2078,2159,2264,2367,2465,2570,2672,2774,2928,7179",
                         "endColumns": "104,99,107,83,101,115,78,77,90,93,93,93,99,92,94,92,90,91,80,104,102,97,104,101,101,153,96,81",
                         "endOffsets": "469,569,677,761,863,979,1058,1136,1227,1321,1415,1509,1609,1702,1797,1890,1981,2073,2154,2259,2362,2460,2565,2667,2769,2923,3020,7256"
+                    }
+                },
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-iw/values-iw.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "90",
+                        "startColumns": "4",
+                        "startOffsets": "7261",
+                        "endColumns": "100",
+                        "endOffsets": "7357"
                     }
                 },
                 {

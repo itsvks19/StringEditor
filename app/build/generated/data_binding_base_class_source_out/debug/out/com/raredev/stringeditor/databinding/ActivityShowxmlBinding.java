@@ -4,13 +4,14 @@ package com.raredev.stringeditor.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.raredev.stringeditor.R;
 import io.github.rosemoe.sora.widget.CodeEditor;
 import java.lang.NullPointerException;
@@ -19,7 +20,7 @@ import java.lang.String;
 
 public final class ActivityShowxmlBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final CoordinatorLayout rootView;
 
   @NonNull
   public final AppBarLayout appBar;
@@ -28,19 +29,24 @@ public final class ActivityShowxmlBinding implements ViewBinding {
   public final CodeEditor editor;
 
   @NonNull
+  public final ExtendedFloatingActionButton fab;
+
+  @NonNull
   public final MaterialToolbar toolbar;
 
-  private ActivityShowxmlBinding(@NonNull LinearLayout rootView, @NonNull AppBarLayout appBar,
-      @NonNull CodeEditor editor, @NonNull MaterialToolbar toolbar) {
+  private ActivityShowxmlBinding(@NonNull CoordinatorLayout rootView, @NonNull AppBarLayout appBar,
+      @NonNull CodeEditor editor, @NonNull ExtendedFloatingActionButton fab,
+      @NonNull MaterialToolbar toolbar) {
     this.rootView = rootView;
     this.appBar = appBar;
     this.editor = editor;
+    this.fab = fab;
     this.toolbar = toolbar;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -77,13 +83,19 @@ public final class ActivityShowxmlBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fab;
+      ExtendedFloatingActionButton fab = ViewBindings.findChildViewById(rootView, id);
+      if (fab == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       MaterialToolbar toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
         break missingId;
       }
 
-      return new ActivityShowxmlBinding((LinearLayout) rootView, appBar, editor, toolbar);
+      return new ActivityShowxmlBinding((CoordinatorLayout) rootView, appBar, editor, fab, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

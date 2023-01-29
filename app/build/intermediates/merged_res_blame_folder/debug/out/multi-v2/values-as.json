@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-31:/values-as/values-as.xml",
+            "outputFile": "com.raredev.stringeditor.app-mergeDebugResources-25:/values-as/values-as.xml",
             "map": [
-                {
-                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/253423a42049b246cad689b66a2f60e3/transformed/core-1.8.0/res/values-as/values-as.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "88",
-                        "startColumns": "4",
-                        "startOffsets": "7321",
-                        "endColumns": "100",
-                        "endOffsets": "7417"
-                    }
-                },
                 {
                     "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/e7109d1dbae3086876b1f573d1dc20c7/transformed/material-1.6.1/res/values-as/values-as.xml",
                     "from": {
@@ -54,6 +37,23 @@
                         "startOffsets": "277,385,484,591,682,784,904,981,1056,1147,1240,1335,1429,1529,1622,1717,1811,1902,1993,2079,2192,2300,2403,2512,2628,2748,2915,7238",
                         "endColumns": "107,98,106,90,101,119,76,74,90,92,94,93,99,92,94,93,90,90,85,112,107,102,108,115,119,166,101,82",
                         "endOffsets": "380,479,586,677,779,899,976,1051,1142,1235,1330,1424,1524,1617,1712,1806,1897,1988,2074,2187,2295,2398,2507,2623,2743,2910,3012,7316"
+                    }
+                },
+                {
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/transforms-3/6ace7c7b2f1cdfe3e4b6899c7f11a4c3/transformed/core-1.7.0/res/values-as/values-as.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "7321",
+                        "endColumns": "100",
+                        "endOffsets": "7417"
                     }
                 }
             ]
