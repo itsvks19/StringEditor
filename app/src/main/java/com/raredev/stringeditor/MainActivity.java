@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
   private void init() {
     LogSender.startLogging(this);
     setSupportActionBar(binding.toolbar);
-    
+
     adapter = new StringsAdapter(listString);
-    
+
     ItemTouchHelper touchHelper = new ItemTouchHelper(new ItemMoveCallBack(adapter));
     touchHelper.attachToRecyclerView(binding.listString);
     adapter.setTouchHelper(touchHelper);
-    
+
     binding.listString.setLayoutManager(new LinearLayoutManager(this));
     binding.listString.setAdapter(adapter);
 

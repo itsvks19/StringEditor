@@ -29,6 +29,7 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH>
   public boolean onItemMove(int fromPosition, int toPosition) {
     Collections.swap(listStrings, fromPosition, toPosition);
     notifyItemMoved(fromPosition, toPosition);
+    notifyDataSetChanged();
     return true;
   }
 
