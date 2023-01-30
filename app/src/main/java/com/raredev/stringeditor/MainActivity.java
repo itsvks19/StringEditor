@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.itsaky.androidide.logsender.LogSender;
+// import com.itsaky.androidide.logsender.LogSender;
 import com.raredev.stringeditor.adapter.StringsAdapter;
 import com.raredev.stringeditor.callback.DialogCallback;
 import com.raredev.stringeditor.callback.ItemMoveCallBack;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements ItemMoveCallBack.
   }
 
   private void init() {
-    LogSender.startLogging(this);
+    // LogSender.startLogging(this);
     setSupportActionBar(binding.toolbar);
 
     listString = new ArrayList<>();
