@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements ItemMoveCallBack.
   }
 
   private void init() {
-    LogSender.startLogging(this);
+    // LogSender.startLogging(this);
     setSupportActionBar(binding.toolbar);
 
     listString = new ArrayList<>();
