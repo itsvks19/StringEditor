@@ -9,16 +9,16 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.raredev.stringeditor.R;
-import com.raredev.stringeditor.StringModel;
+import com.raredev.stringeditor.model.Attribute;
 import java.util.List;
 
 public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
-  private List<StringModel> listStrings;
+  private List<Attribute> listStrings;
   
   private ItemTouchHelper touchHelper;
   private StringListener listener;
   
-  public StringsAdapter(List<StringModel> listStrings) {
+  public StringsAdapter(List<Attribute> listStrings) {
     this.listStrings = listStrings;
   }
 
@@ -30,10 +30,10 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
 
   @Override
   public void onBindViewHolder(VH holder, int position) {
-    StringModel model = listStrings.get(position);
+    Attribute model = listStrings.get(position);
 
-    holder.tvName.setText(model.getStringName());
-    holder.tvValue.setText(model.getStringValue());
+    holder.tvName.setText(model.getName());
+    holder.tvValue.setText(model.getValue());
 
     holder.itemView.setOnClickListener(
         (v) -> {
@@ -63,9 +63,7 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
   }
 
   public interface StringListener {
-
     void onStringClick(View v, int pos);
-
     void onStringLongClick(View v, int pos);
   }
 

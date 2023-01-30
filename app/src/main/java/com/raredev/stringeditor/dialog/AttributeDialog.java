@@ -8,24 +8,24 @@ import android.text.TextWatcher;
 import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
-import com.raredev.stringeditor.StringModel;
 import com.raredev.stringeditor.callback.DialogCallback;
-import com.raredev.stringeditor.databinding.DialogStringBinding;
+import com.raredev.stringeditor.databinding.DialogAttributeBinding;
+import com.raredev.stringeditor.model.Attribute;
 import com.raredev.stringeditor.utils.Validator;
 import java.util.List;
 
-public class BaseStringDialog {
-  private DialogStringBinding dialogBinding;
+public class AttributeDialog {
+  private DialogAttributeBinding dialogBinding;
   private DialogCallback callback;
   private AlertDialog alertDialog;
 
-  public BaseStringDialog(Context context, List<StringModel> listString, int currentPosition, DialogCallback callback) {
+  public AttributeDialog(Context context, List<Attribute> listString, int currentPosition, DialogCallback callback) {
     this.callback = callback;
     MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context);
-    dialogBinding = DialogStringBinding.inflate(((Activity)context).getLayoutInflater());
+    dialogBinding = DialogAttributeBinding.inflate(((Activity)context).getLayoutInflater());
     builder.setView(dialogBinding.getRoot());
     
-    final var currentName = currentPosition != -1 ? listString.get(currentPosition).getStringName() : "";
+    final var currentName = currentPosition != -1 ? listString.get(currentPosition).getName() : "";
     final var positiveButtonText = currentPosition == -1 ? "Create" : "Save";
     
     builder.setPositiveButton(positiveButtonText, (dlg, i) -> callback.onPositiveButtonClicked(dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString()));
@@ -34,35 +34,32 @@ public class BaseStringDialog {
     alertDialog = builder.create();
     
     if (currentPosition != -1) {
-      dialogBinding.textinputName.setText(listString.get(currentPosition).getStringName());
-      dialogBinding.textinputValue.setText(listString.get(currentPosition).getStringValue());
+      dialogBinding.textinputName.setText(listString.get(currentPosition).getName());
+      dialogBinding.textinputValue.setText(listString.get(currentPosition).getValue());
     }
-    dialogBinding.textinputName.addTextChangedListener(
+    TextWatcher textWatcher =
         new TextWatcher() {
           @Override
           public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
 
           @Override
           public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
-            checkNameAndValueErrors(listString, dialogBinding.textInputLayoutName, dialogBinding.textInputLayoutValue, currentName, dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString(), alertDialog);
+            checkNameAndValueErrors(
+                listString,
+                dialogBinding.textInputLayoutName,
+                dialogBinding.textInputLayoutValue,
+                currentName,
+                dialogBinding.textinputName.getText().toString(),
+                dialogBinding.textinputValue.getText().toString(),
+                alertDialog);
           }
 
           @Override
           public void afterTextChanged(Editable p1) {}
-        });
-    dialogBinding.textinputValue.addTextChangedListener(
-        new TextWatcher() {
-          @Override
-          public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
+        };
 
-          @Override
-          public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
-            checkNameAndValueErrors(listString, dialogBinding.textInputLayoutName, dialogBinding.textInputLayoutValue, currentName, dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString(), alertDialog);
-          }
-
-          @Override
-          public void afterTextChanged(Editable p1) {}
-        });
+    dialogBinding.textinputName.addTextChangedListener(textWatcher);
+    dialogBinding.textinputValue.addTextChangedListener(textWatcher);
   }
   
   public void setTitle(String title) {
@@ -73,7 +70,7 @@ public class BaseStringDialog {
     alertDialog.show();
   }
   
-  private void checkNameAndValueErrors(List<StringModel> listString, TextInputLayout nameLayout, TextInputLayout valueLayout, String currentName, String name, String value, AlertDialog dialog) {
+  private void checkNameAndValueErrors(List<Attribute> listString, TextInputLayout nameLayout, TextInputLayout valueLayout, String currentName, String name, String value, AlertDialog dialog) {
     if (checkNameErrors(listString, nameLayout, currentName, name, dialog) && checkValueErrors(valueLayout, value, dialog)) {
       dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(true);
       return;
@@ -81,7 +78,7 @@ public class BaseStringDialog {
     dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
   }
 
-  private boolean checkNameErrors(List<StringModel> listString, TextInputLayout nameLayout, String currentName, String name, AlertDialog dialog) {
+  private boolean checkNameErrors(List<Attribute> listString, TextInputLayout nameLayout, String currentName, String name, AlertDialog dialog) {
     if (!Validator.isValidStringName(name, currentName, listString)) {
       nameLayout.setErrorEnabled(true);
       nameLayout.setError("Invalid name!");

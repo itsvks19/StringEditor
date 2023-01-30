@@ -1,21 +1,20 @@
 package com.raredev.stringeditor.utils;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.raredev.stringeditor.StringModel;
+import com.raredev.stringeditor.model.Attribute;
 import java.util.List;
 
 public class Validator {
 
   public static boolean isValidStringName(
-      String nameInput, String currentName, List<StringModel> listString) {
+      String nameInput, String currentName, List<Attribute> listString) {
     String pattern = "^[a-zA-Z]+[a-zA-Z0-9_]*$";
 
     if (!nameInput.matches(pattern) || nameInput.isEmpty()) {
       return false;
     }
 
-    for (StringModel model : listString) {
-      if (nameInput.equals(model.getStringName()) && !currentName.equals(model.getStringName())) {
+    for (Attribute attr : listString) {
+      if (nameInput.equals(attr.getName()) && !currentName.equals(attr.getName())) {
         return false;
       }
     }
