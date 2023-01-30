@@ -12,6 +12,7 @@ import java.util.List;
 public class SourceUtils {
   public static String generateXml(List<StringModel> list) {
     StringBuilder sb = new StringBuilder();
+    sb.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
     sb.append("<resources>\n");
 
     for (StringModel string : list) {

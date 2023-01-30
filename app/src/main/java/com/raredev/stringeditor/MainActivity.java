@@ -94,7 +94,9 @@ public class MainActivity extends AppCompatActivity implements ItemMoveCallBack.
           if (title == "Edit") {
             dialogEditString(pos);
           } else if (title == "Remove") {
-            dialogConfirmRemove(pos);
+            listString.remove(pos);
+            ToastUtils.showShort("Removed");
+            adapter.notifyDataSetChanged();
           }
           return true;
         });
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements ItemMoveCallBack.
 
     return super.onOptionsItemSelected(item);
   }
-  
+
   private void dialogEditString(int pos) {
     BaseStringDialog dialog = new BaseStringDialog(this, listString, pos,
       new DialogCallback() {
@@ -143,20 +145,5 @@ public class MainActivity extends AppCompatActivity implements ItemMoveCallBack.
     });
     dialog.setTitle("Create String");
     dialog.show();
-  }
-
-  private void dialogConfirmRemove(int pos) {
-    new MaterialAlertDialogBuilder(this)
-        .setTitle("Remove String")
-        .setMessage("Are you sure you want to remove this String?")
-        .setPositiveButton(
-            "Remove",
-            (dlg, v) -> {
-              listString.remove(pos);
-              ToastUtils.showShort("Removed");
-              adapter.notifyDataSetChanged();
-            })
-        .setNegativeButton("Cancel", null)
-        .show();
   }
 }
