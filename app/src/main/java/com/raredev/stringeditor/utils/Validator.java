@@ -7,7 +7,7 @@ import java.util.List;
 public class Validator {
 
   public static boolean isValidStringName(
-      String nameInput, List<StringModel> listString, int pos) {
+      String nameInput, String currentName, List<StringModel> listString) {
     String pattern = "^[a-zA-Z]+[a-zA-Z0-9_]*$";
 
     if (!nameInput.matches(pattern) || nameInput.isEmpty()) {
@@ -15,14 +15,8 @@ public class Validator {
     }
 
     for (StringModel model : listString) {
-      if (pos != -1) {
-        if (nameInput.equals(model.getStringName()) && !nameInput.equals(listString.get(pos).getStringName())) {
-          return false;
-        }
-      } else {
-        if (nameInput.equals(model.getStringName())) {
-          return false;
-        }
+      if (nameInput.equals(model.getStringName()) && !currentName.equals(model.getStringName())) {
+        return false;
       }
     }
     return true;

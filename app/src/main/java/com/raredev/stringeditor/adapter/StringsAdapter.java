@@ -10,14 +10,9 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.raredev.stringeditor.R;
 import com.raredev.stringeditor.StringModel;
-import com.raredev.stringeditor.callback.ItemMoveCallBack;
-import com.raredev.stringeditor.utils.SourceUtils;
-import io.github.rosemoe.sora.lang.completion.CompletionItemKind;
-import java.util.Collections;
 import java.util.List;
 
-public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH>
-    implements ItemMoveCallBack.ItemMoveListener {
+public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
   private List<StringModel> listStrings;
   
   private ItemTouchHelper touchHelper;
@@ -25,14 +20,6 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH>
   
   public StringsAdapter(List<StringModel> listStrings) {
     this.listStrings = listStrings;
-  }
-
-  @Override
-  public boolean onItemMove(int fromPosition, int toPosition) {
-    Collections.swap(listStrings, fromPosition, toPosition);
-    notifyItemMoved(fromPosition, toPosition);
-    notifyDataSetChanged();
-    return true;
   }
 
   @Override

@@ -1,35 +1,32 @@
 package com.raredev.stringeditor;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.*;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.textfield.TextInputLayout;
 import com.itsaky.androidide.logsender.LogSender;
 import com.raredev.stringeditor.adapter.StringsAdapter;
+import com.raredev.stringeditor.callback.DialogCallback;
 import com.raredev.stringeditor.callback.ItemMoveCallBack;
 import com.raredev.stringeditor.databinding.ActivityMainBinding;
-import com.raredev.stringeditor.databinding.DialogStringBinding;
+import com.raredev.stringeditor.dialog.BaseStringDialog;
 import com.raredev.stringeditor.utils.SourceUtils;
-import com.raredev.stringeditor.utils.Validator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class MainActivity extends AppCompatActivity {
-  private List<StringModel> listString = new ArrayList<>();
+public class MainActivity extends AppCompatActivity implements ItemMoveCallBack.ItemMoveListener {
+  private List<StringModel> listString;
   private StringsAdapter adapter;
 
   private ActivityMainBinding binding;
@@ -46,9 +43,10 @@ public class MainActivity extends AppCompatActivity {
     LogSender.startLogging(this);
     setSupportActionBar(binding.toolbar);
 
+    listString = new ArrayList<>();
     adapter = new StringsAdapter(listString);
 
-    ItemTouchHelper touchHelper = new ItemTouchHelper(new ItemMoveCallBack(adapter));
+    ItemTouchHelper touchHelper = new ItemTouchHelper(new ItemMoveCallBack(this));
     touchHelper.attachToRecyclerView(binding.listString);
     adapter.setTouchHelper(touchHelper);
 
@@ -72,6 +70,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
     listString.add(new StringModel("app_name", "String Editor"));
+  }
+
+  @Override
+  public boolean onItemMove(RecyclerView.ViewHolder holder, int fromPosition, int toPosition) {
+    Collections.swap(listString, fromPosition, toPosition);
+    adapter.notifyItemMoved(fromPosition, toPosition);
+    return true;
+  }
+
+  @Override
+  public void onDragFinish() {
+    adapter.notifyDataSetChanged();
   }
 
   private void showPopupMenu(View v, int pos) {
@@ -110,90 +120,29 @@ public class MainActivity extends AppCompatActivity {
   }
   
   private void dialogEditString(int pos) {
-    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
-
-    DialogStringBinding dialogBinding = DialogStringBinding.inflate(getLayoutInflater());
-
-    builder.setView(dialogBinding.getRoot());
-    builder.setTitle("Create String");
-
-    builder.setPositiveButton("Create", (dlg, i) -> {
-      listString.set(pos, new StringModel(dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString()));
-      adapter.notifyDataSetChanged();
+    BaseStringDialog dialog = new BaseStringDialog(this, listString, pos,
+      new DialogCallback() {
+        @Override
+        public void onPositiveButtonClicked(String name, String value) {
+          listString.set(pos, new StringModel(name, value));
+          adapter.notifyDataSetChanged();
+        }
     });
-    builder.setNegativeButton("Cancel", null);
-    
-    final AlertDialog alertDialog = builder.create();
-    alertDialog.show();
-    TextWatcher textWatcher =
-        new TextWatcher() {
-          @Override
-          public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
-
-          @Override
-          public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
-            checkErrors(
-                dialogBinding.textInputLayoutName,
-                dialogBinding.textInputLayoutValue,
-                dialogBinding.textinputName.getText().toString(),
-                dialogBinding.textinputValue.getText().toString(),
-                alertDialog,
-                pos);
-          }
-
-          @Override
-          public void afterTextChanged(Editable p1) {
-            
-          }
-        };
-    dialogBinding.textinputName.setText(listString.get(pos).getStringName());
-    dialogBinding.textinputValue.setText(listString.get(pos).getStringValue());
-    dialogBinding.textinputName.addTextChangedListener(textWatcher);
-    dialogBinding.textinputValue.addTextChangedListener(textWatcher);
-    alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+    dialog.setTitle("Edit String");
+    dialog.show();
   }
 
   private void dialogNewString() {
-    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
-
-    DialogStringBinding dialogBinding = DialogStringBinding.inflate(getLayoutInflater());
-
-    builder.setView(dialogBinding.getRoot());
-    builder.setTitle("Create String");
-
-    builder.setPositiveButton("Create", (dlg, i) -> {
-      listString.add(new StringModel(dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString()));
-      adapter.notifyDataSetChanged();
+    BaseStringDialog dialog = new BaseStringDialog(this, listString, -1,
+      new DialogCallback() {
+        @Override
+        public void onPositiveButtonClicked(String name, String value) {
+          listString.add(new StringModel(name, value));
+          adapter.notifyDataSetChanged();
+        }
     });
-    builder.setNegativeButton("Cancel", null);
-    
-    final AlertDialog alertDialog = builder.create();
-    alertDialog.show();
-    TextWatcher textWatcher =
-        new TextWatcher() {
-          @Override
-          public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
-
-          @Override
-          public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
-            checkErrors(
-                dialogBinding.textInputLayoutName,
-                dialogBinding.textInputLayoutValue,
-                dialogBinding.textinputName.getText().toString(),
-                dialogBinding.textinputValue.getText().toString(),
-                alertDialog,
-                -1);
-          }
-
-          @Override
-          public void afterTextChanged(Editable p1) {
-            
-          }
-        };
-
-    dialogBinding.textinputName.addTextChangedListener(textWatcher);
-    dialogBinding.textinputValue.addTextChangedListener(textWatcher);
-    alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+    dialog.setTitle("Create String");
+    dialog.show();
   }
 
   private void dialogConfirmRemove(int pos) {
@@ -204,33 +153,10 @@ public class MainActivity extends AppCompatActivity {
             "Remove",
             (dlg, v) -> {
               listString.remove(pos);
-              adapter.notifyDataSetChanged();
               ToastUtils.showShort("Removed");
+              adapter.notifyDataSetChanged();
             })
         .setNegativeButton("Cancel", null)
         .show();
-  }
-
-  private void checkErrors(TextInputLayout nameLayout, TextInputLayout valueLayout, String name, String value, AlertDialog dialog, int pos) {
-    if (!Validator.isValidStringName(name, listString, pos) || !Validator.isValidStringValue(value)) {
-      if (!Validator.isValidStringName(name, listString, pos)) {
-        nameLayout.setErrorEnabled(true);
-        nameLayout.setError("Invalid name!");
-        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
-        return;
-      }
-      if (!Validator.isValidStringValue(value)) {
-        valueLayout.setErrorEnabled(true);
-        valueLayout.setError("Invalid value!");
-        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
-        return;
-      }
-      return;
-    }
-    nameLayout.setErrorEnabled(false);
-    nameLayout.setError("");
-    valueLayout.setErrorEnabled(false);
-    valueLayout.setError("");
-    dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(true);
   }
 }

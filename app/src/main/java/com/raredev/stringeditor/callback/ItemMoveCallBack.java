@@ -32,16 +32,27 @@ public class ItemMoveCallBack extends ItemTouchHelper.Callback {
       RecyclerView recyclerView,
       RecyclerView.ViewHolder viewHolder,
       RecyclerView.ViewHolder target) {
-    listener.onItemMove(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+    listener.onItemMove(viewHolder, viewHolder.getAdapterPosition(), target.getAdapterPosition());
     return true;
   }
 
   @Override
   public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-    // Not used
+  }
+
+  @Override
+  public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
+    super.onSelectedChanged(viewHolder, actionState);
+    if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
+      // view está sendo arrastada
+    } else if (actionState == ItemTouchHelper.ACTION_STATE_IDLE) {
+      // view não está mais sendo arrastada
+      listener.onDragFinish();
+    }
   }
 
   public interface ItemMoveListener {
-    boolean onItemMove(int fromPosition, int toPosition);
+    boolean onItemMove(RecyclerView.ViewHolder viewHolder, int fromPosition, int toPosition);
+    void onDragFinish();
   }
 }
