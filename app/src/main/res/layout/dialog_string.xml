@@ -8,6 +8,7 @@
   android:padding="8dp">
 
   <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/text_input_layout_name"
     android:hint="String name:"
     app:hintAnimationEnabled="true"
     android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
   </com.google.android.material.textfield.TextInputLayout>
 
   <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/text_input_layout_value"
     android:hint="String value:"
     app:hintAnimationEnabled="true"
     android:layout_height="wrap_content"

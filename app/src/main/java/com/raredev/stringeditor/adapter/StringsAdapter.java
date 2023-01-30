@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.raredev.stringeditor.R;
 import com.raredev.stringeditor.StringModel;
 import com.raredev.stringeditor.callback.ItemMoveCallBack;
+import com.raredev.stringeditor.utils.SourceUtils;
+import io.github.rosemoe.sora.lang.completion.CompletionItemKind;
 import java.util.Collections;
 import java.util.List;
 
@@ -55,19 +57,16 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH>
           listener.onStringLongClick(v, position);
           return true;
         });
-    
+
     holder.imgDrag.setOnTouchListener(
-          new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-              if(event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                  touchHelper.startDrag(holder);
-              }
-              return false;
-            }
-          });
+        (v, event) -> {
+          if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+            touchHelper.startDrag(holder);
+          }
+          return false;
+        });
   }
-  
+
   public void setTouchHelper(ItemTouchHelper touchHelper) {
     this.touchHelper = touchHelper;
   }

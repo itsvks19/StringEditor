@@ -23,6 +23,7 @@ public class ShowXMLActivity extends AppCompatActivity {
   
   private void init() {
     setSupportActionBar(binding.toolbar);
+    getSupportActionBar().setTitle("Show XML");
     setupEditor();
     
     binding.fab.setOnClickListener((v) -> {

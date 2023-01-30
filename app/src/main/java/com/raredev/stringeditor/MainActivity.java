@@ -3,10 +3,11 @@ package com.raredev.stringeditor;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.*;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +16,12 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.blankj.utilcode.util.ToastUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.itsaky.androidide.logsender.LogSender;
 import com.raredev.stringeditor.adapter.StringsAdapter;
 import com.raredev.stringeditor.callback.ItemMoveCallBack;
 import com.raredev.stringeditor.databinding.ActivityMainBinding;
+import com.raredev.stringeditor.databinding.DialogStringBinding;
 import com.raredev.stringeditor.utils.SourceUtils;
 import com.raredev.stringeditor.utils.Validator;
 import java.util.ArrayList;
@@ -76,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
     PopupMenu menu = new PopupMenu(this, v);
     menu.getMenu().add(0, 0, 0, "Edit");
     menu.getMenu().add(0, 1, 1, "Remove");
-
     menu.setOnMenuItemClickListener(
         (item) -> {
           final var title = item.getTitle();
@@ -108,92 +109,128 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
   
-  public void dialogEditString(int pos) {
-    AlertDialog dialog =
-        new MaterialAlertDialogBuilder(this)
-            .setView(R.layout.dialog_string)
-            .setTitle("Edit String")
-            .setPositiveButton("Create", null)
-            .setNegativeButton("Cancel", null)
-            .create();
+  private void dialogEditString(int pos) {
+    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
 
-    dialog.setOnShowListener(
-        (d) -> {
-          TextInputEditText name = dialog.findViewById(R.id.textinput_name);
-          TextInputEditText value = dialog.findViewById(R.id.textinput_value);
-          Button positive = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+    DialogStringBinding dialogBinding = DialogStringBinding.inflate(getLayoutInflater());
 
-          StringModel stringModel = listString.get(pos);
-          name.setText(stringModel.getStringName());
-          value.setText(stringModel.getStringValue());
+    builder.setView(dialogBinding.getRoot());
+    builder.setTitle("Create String");
 
-          positive.setOnClickListener(
-              (v) -> {
-                String nameInput = name.getText().toString();
-                String valueInput = value.getText().toString();
+    builder.setPositiveButton("Create", (dlg, i) -> {
+      listString.set(pos, new StringModel(dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString()));
+      adapter.notifyDataSetChanged();
+    });
+    builder.setNegativeButton("Cancel", null);
+    
+    final AlertDialog alertDialog = builder.create();
+    alertDialog.show();
+    TextWatcher textWatcher =
+        new TextWatcher() {
+          @Override
+          public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
 
-                if (!Validator.isValidStringName(nameInput, listString, name)) {
-                  return;
-                }
-                if (!Validator.isValidStringValue(valueInput)) {
-                  value.setError("Invalid value!");
-                  return;
-                }
+          @Override
+          public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
+            checkErrors(
+                dialogBinding.textInputLayoutName,
+                dialogBinding.textInputLayoutValue,
+                dialogBinding.textinputName.getText().toString(),
+                dialogBinding.textinputValue.getText().toString(),
+                alertDialog,
+                pos);
+          }
 
-                listString.set(pos, new StringModel(nameInput, valueInput));
-                adapter.notifyDataSetChanged();
-                dialog.cancel();
-              });
-        });
-    dialog.show();
+          @Override
+          public void afterTextChanged(Editable p1) {
+            
+          }
+        };
+    dialogBinding.textinputName.setText(listString.get(pos).getStringName());
+    dialogBinding.textinputValue.setText(listString.get(pos).getStringValue());
+    dialogBinding.textinputName.addTextChangedListener(textWatcher);
+    dialogBinding.textinputValue.addTextChangedListener(textWatcher);
+    alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
   }
 
   private void dialogNewString() {
-    AlertDialog dialog =
-        new MaterialAlertDialogBuilder(this)
-            .setView(R.layout.dialog_string)
-            .setTitle("Create String")
-            .setPositiveButton("Create", null)
-            .setNegativeButton("Cancel", null)
-            .create();
+    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
 
-    dialog.setOnShowListener(
-        (d) -> {
-          TextInputEditText name = dialog.findViewById(R.id.textinput_name);
-          TextInputEditText value = dialog.findViewById(R.id.textinput_value);
-          Button positive = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+    DialogStringBinding dialogBinding = DialogStringBinding.inflate(getLayoutInflater());
 
-          positive.setOnClickListener(
-              (v) -> {
-                String nameInput = name.getText().toString();
-                String valueInput = value.getText().toString();
+    builder.setView(dialogBinding.getRoot());
+    builder.setTitle("Create String");
 
-                if (!Validator.isValidStringName(nameInput, listString, name)) {
-                  return;
-                }
-                if (!Validator.isValidStringValue(valueInput)) {
-                  value.setError("Invalid value!");
-                  return;
-                }
+    builder.setPositiveButton("Create", (dlg, i) -> {
+      listString.add(new StringModel(dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString()));
+      adapter.notifyDataSetChanged();
+    });
+    builder.setNegativeButton("Cancel", null);
+    
+    final AlertDialog alertDialog = builder.create();
+    alertDialog.show();
+    TextWatcher textWatcher =
+        new TextWatcher() {
+          @Override
+          public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
 
-                listString.add(new StringModel(nameInput, valueInput));
-                adapter.notifyDataSetChanged();
-                dialog.cancel();
-              });
-        });
-    dialog.show();
+          @Override
+          public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
+            checkErrors(
+                dialogBinding.textInputLayoutName,
+                dialogBinding.textInputLayoutValue,
+                dialogBinding.textinputName.getText().toString(),
+                dialogBinding.textinputValue.getText().toString(),
+                alertDialog,
+                -1);
+          }
+
+          @Override
+          public void afterTextChanged(Editable p1) {
+            
+          }
+        };
+
+    dialogBinding.textinputName.addTextChangedListener(textWatcher);
+    dialogBinding.textinputValue.addTextChangedListener(textWatcher);
+    alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
   }
-  
+
   private void dialogConfirmRemove(int pos) {
     new MaterialAlertDialogBuilder(this)
-            .setTitle("Remove String")
-            .setMessage("Are you sure you want to remove this String?")
-            .setPositiveButton("Remove", (dlg, v) -> {
+        .setTitle("Remove String")
+        .setMessage("Are you sure you want to remove this String?")
+        .setPositiveButton(
+            "Remove",
+            (dlg, v) -> {
               listString.remove(pos);
               adapter.notifyDataSetChanged();
               ToastUtils.showShort("Removed");
             })
-            .setNegativeButton("Cancel", null)
-            .show();
+        .setNegativeButton("Cancel", null)
+        .show();
+  }
+
+  private void checkErrors(TextInputLayout nameLayout, TextInputLayout valueLayout, String name, String value, AlertDialog dialog, int pos) {
+    if (!Validator.isValidStringName(name, listString, pos) || !Validator.isValidStringValue(value)) {
+      if (!Validator.isValidStringName(name, listString, pos)) {
+        nameLayout.setErrorEnabled(true);
+        nameLayout.setError("Invalid name!");
+        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+        return;
+      }
+      if (!Validator.isValidStringValue(value)) {
+        valueLayout.setErrorEnabled(true);
+        valueLayout.setError("Invalid value!");
+        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+        return;
+      }
+      return;
+    }
+    nameLayout.setErrorEnabled(false);
+    nameLayout.setError("");
+    valueLayout.setErrorEnabled(false);
+    valueLayout.setError("");
+    dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(true);
   }
 }
