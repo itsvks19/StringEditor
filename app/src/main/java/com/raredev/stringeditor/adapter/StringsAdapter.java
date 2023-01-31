@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.raredev.stringeditor.R;
+import com.raredev.stringeditor.databinding.StringItemBinding;
 import com.raredev.stringeditor.model.Attribute;
 import java.util.List;
 
@@ -24,8 +26,7 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
 
   @Override
   public VH onCreateViewHolder(ViewGroup parent, int position) {
-    View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.string_item, parent, false);
-    return new VH(v);
+    return new VH(StringItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
   }
 
   @Override
@@ -35,10 +36,7 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
     holder.tvName.setText(model.getName());
     holder.tvValue.setText(model.getValue());
 
-    holder.itemView.setOnClickListener(
-        (v) -> {
-          listener.onStringClick(v, position);
-        });
+    holder.itemView.setOnClickListener((v) -> listener.onStringClick(v, position));
     holder.itemView.setOnLongClickListener(
         (v) -> {
           listener.onStringLongClick(v, position);
@@ -47,9 +45,7 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
 
     holder.imgDrag.setOnTouchListener(
         (v, event) -> {
-          if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-            touchHelper.startDrag(holder);
-          }
+          if (event.getActionMasked() == MotionEvent.ACTION_DOWN) touchHelper.startDrag(holder);
           return false;
         });
   }
@@ -73,14 +69,16 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
   }
 
   public class VH extends RecyclerView.ViewHolder {
+    public StringItemBinding binding;
     public TextView tvName, tvValue;
     public ImageView imgDrag;
 
-    public VH(View v) {
-      super(v);
-      tvName = v.findViewById(R.id.name);
-      tvValue = v.findViewById(R.id.value);
-      imgDrag = v.findViewById(R.id.icon_drag);
+    public VH(@NonNull StringItemBinding binding) {
+      super(binding.getRoot());
+      this.binding = binding;
+      tvName = binding.name;
+      tvValue = binding.value;
+      imgDrag = binding.iconDrag;
     }
   }
 }

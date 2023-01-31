@@ -1,20 +1,4 @@
 {
-  "allFiles": [
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/StringEditor/app/build.gradle",
-      "selection": {
-        "end": {
-          "column": 4,
-          "index": -1,
-          "line": 35
-        },
-        "start": {
-          "column": 4,
-          "index": -1,
-          "line": 35
-        }
-      }
-    }
-  ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/StringEditor/app/build.gradle"
+  "allFiles": [],
+  "selectedFile": "/data/data/com.itsaky.androidide/files/home/StringEditor/app/src/main/java/com/raredev/stringeditor/dialog/AttributeDialog.java"
 }

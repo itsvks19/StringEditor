@@ -20,15 +20,16 @@ import io.github.rosemoe.sora.langs.textmate.registry.ThemeRegistry;
 
 public class EditorFragment extends Fragment {
   private FragmentEditorBinding binding;
-  
-  private String preset_xml = 
-    "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-    "<resources>\n" +
-        "\t<string name=\"hello_world\">Hello World</string>\n" +
-    "</resources>";
+
+  private String preset_xml =
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+          + "<resources>\n"
+          + "\t<string name=\"hello_world\">Hello World!</string>\n"
+          + "</resources>";
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+  public View onCreateView(
+      LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     binding = FragmentEditorBinding.inflate(inflater, container, false);
     return binding.getRoot();
   }
@@ -56,9 +57,7 @@ public class EditorFragment extends Fragment {
 
   @Override
   public void onPause() {
-    XmlGeneratorUtils.getInstance().setCode(
-      binding.editor.getText().toString()
-    );
+    XmlGeneratorUtils.getInstance().setCode(binding.editor.getText().toString());
     super.onPause();
   }
 
@@ -67,10 +66,23 @@ public class EditorFragment extends Fragment {
     setupSymbolInput();
     setupEditor();
 
-    binding.fab.setOnClickListener((v) -> {
-      ClipboardUtils.copyText(binding.editor.getText().toString());
-      ToastUtils.showShort("Copied");
-    });
+    binding.fab.setOnClickListener(
+        (v) -> {
+          ClipboardUtils.copyText(binding.editor.getText().toString());
+          ToastUtils.showShort("Copied");
+        });
+    binding.editor.setOnScrollChangeListener(
+        (v, x, y, oldX, oldY) -> {
+          if (y > oldY + 20 && binding.fab.isExtended()) {
+            binding.fab.shrink();
+          }
+          if (y < oldY - 20 && !binding.fab.isExtended()) {
+            binding.fab.extend();
+          }
+          if (y == 0) {
+            binding.fab.extend();
+          }
+        });
   }
 
   private void setupEditor() {
@@ -79,14 +91,13 @@ public class EditorFragment extends Fragment {
     updateEditorScheme();
     updateEditorLanguage();
   }
-  
+
   private void setupSymbolInput() {
     binding.symbolInput.setBackgroundColor(SurfaceColors.SURFACE_0.getColor(getContext()));
     binding.symbolInput.bindEditor(binding.editor);
     binding.symbolInput.addSymbols(
-      new String[] {"→", "<", ">", "/", "=", "\"", ":", "!", "?"},
-      new String[] {"\t", "<", ">", "/", "=", "\"", ":", "!", "?"}
-    );
+        new String[] {"→", "<", ">", "/", "=", "\"", ":", "!", "?"},
+        new String[] {"\t", "<>", ">", "/", "=", "\"\"", ":", "!", "?"});
     binding.symbolInput.forEachButton((b) -> b.setTypeface(jetBrainsMono()));
   }
 
@@ -119,7 +130,7 @@ public class EditorFragment extends Fragment {
     int uiMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
     return uiMode == Configuration.UI_MODE_NIGHT_YES;
   }
-  
+
   public static EditorFragment newInstance() {
     EditorFragment fragment = new EditorFragment();
     fragment.setRetainInstance(true);

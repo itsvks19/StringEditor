@@ -9,7 +9,7 @@
 
   <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/text_input_layout_name"
-    android:hint="String name:"
+    android:hint="Name"
     app:hintAnimationEnabled="true"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
@@ -24,7 +24,7 @@
 
   <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/text_input_layout_value"
-    android:hint="String value:"
+    android:hint="Value"
     app:hintAnimationEnabled="true"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"

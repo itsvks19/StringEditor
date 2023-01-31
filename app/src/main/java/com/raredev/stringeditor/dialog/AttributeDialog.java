@@ -24,15 +24,20 @@ public class AttributeDialog {
     MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context);
     dialogBinding = DialogAttributeBinding.inflate(((Activity)context).getLayoutInflater());
     builder.setView(dialogBinding.getRoot());
-    
+
     final var currentName = currentPosition != -1 ? listString.get(currentPosition).getName() : "";
     final var positiveButtonText = currentPosition == -1 ? "Create" : "Save";
-    
-    builder.setPositiveButton(positiveButtonText, (dlg, i) -> callback.onPositiveButtonClicked(dialogBinding.textinputName.getText().toString(), dialogBinding.textinputValue.getText().toString()));
-    builder.setNegativeButton("Cancel", null);
-    
+
+    builder.setPositiveButton(
+        positiveButtonText,
+        (dlg, i) ->
+            callback.onPositiveButtonClicked(
+                dialogBinding.textinputName.getText().toString(),
+                dialogBinding.textinputValue.getText().toString()));
+    builder.setNegativeButton("Cancel", (d, w) -> d.dismiss());
+
     alertDialog = builder.create();
-    
+
     if (currentPosition != -1) {
       dialogBinding.textinputName.setText(listString.get(currentPosition).getName());
       dialogBinding.textinputValue.setText(listString.get(currentPosition).getValue());
