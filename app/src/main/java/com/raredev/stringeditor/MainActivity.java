@@ -5,7 +5,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import com.itsaky.androidide.logsender.LogSender;
 import com.raredev.stringeditor.databinding.ActivityMainBinding;
 import com.raredev.stringeditor.fragment.*;
 
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private void init() {
-    LogSender.startLogging(this);
     setSupportActionBar(binding.toolbar);
 
     getSupportFragmentManager()
