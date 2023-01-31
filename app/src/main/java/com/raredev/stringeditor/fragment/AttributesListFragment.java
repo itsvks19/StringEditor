@@ -139,7 +139,7 @@ public class AttributesListFragment extends Fragment implements ItemMoveCallBack
           adapter.notifyDataSetChanged();
         }
     });
-    dialog.setTitle("Create String");
+    dialog.setTitle("New String");
     dialog.show();
   }
 
