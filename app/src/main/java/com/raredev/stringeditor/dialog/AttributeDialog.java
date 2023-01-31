@@ -7,42 +7,34 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.raredev.stringeditor.callback.DialogCallback;
 import com.raredev.stringeditor.databinding.DialogAttributeBinding;
-import com.raredev.stringeditor.model.Attribute;
 import com.raredev.stringeditor.utils.Validator;
-import java.util.List;
 
 public class AttributeDialog {
-  private DialogAttributeBinding dialogBinding;
+  private DialogAttributeBinding binding;
   private DialogCallback callback;
   private AlertDialog alertDialog;
 
-  public AttributeDialog(Context context, List<Attribute> listString, int currentPosition, DialogCallback callback) {
+  public AttributeDialog(Context context, DialogCallback callback) {
     this.callback = callback;
     MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context);
-    dialogBinding = DialogAttributeBinding.inflate(((Activity)context).getLayoutInflater());
-    builder.setView(dialogBinding.getRoot());
-
-    final var currentName = currentPosition != -1 ? listString.get(currentPosition).getName() : "";
-    final var positiveButtonText = currentPosition == -1 ? "Create" : "Save";
+    binding = DialogAttributeBinding.inflate(((Activity) context).getLayoutInflater());
+    builder.setView(binding.getRoot());
 
     builder.setPositiveButton(
-        positiveButtonText,
+        "Save",
         (dlg, i) ->
             callback.onPositiveButtonClicked(
-                dialogBinding.textinputName.getText().toString(),
-                dialogBinding.textinputValue.getText().toString()));
+                binding.textinputName.getText().toString(),
+                binding.textinputValue.getText().toString()));
     builder.setNegativeButton("Cancel", (d, w) -> d.dismiss());
 
     alertDialog = builder.create();
 
-    if (currentPosition != -1) {
-      dialogBinding.textinputName.setText(listString.get(currentPosition).getName());
-      dialogBinding.textinputValue.setText(listString.get(currentPosition).getValue());
-    }
-    TextWatcher textWatcher =
+    /*TextWatcher textWatcher =
         new TextWatcher() {
           @Override
           public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
@@ -50,12 +42,10 @@ public class AttributeDialog {
           @Override
           public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
             checkNameAndValueErrors(
-                listString,
-                dialogBinding.textInputLayoutName,
-                dialogBinding.textInputLayoutValue,
-                currentName,
-                dialogBinding.textinputName.getText().toString(),
-                dialogBinding.textinputValue.getText().toString(),
+                binding.textInputLayoutName,
+                binding.textInputLayoutValue,
+                binding.textinputName.getText().toString(),
+                binding.textinputValue.getText().toString(),
                 alertDialog);
           }
 
@@ -63,28 +53,61 @@ public class AttributeDialog {
           public void afterTextChanged(Editable p1) {}
         };
 
-    dialogBinding.textinputName.addTextChangedListener(textWatcher);
-    dialogBinding.textinputValue.addTextChangedListener(textWatcher);
+    binding.textinputName.addTextChangedListener(textWatcher);
+    binding.textinputValue.addTextChangedListener(textWatcher);*/
   }
-  
+
   public void setTitle(String title) {
     alertDialog.setTitle(title);
+  }
+
+  public TextInputEditText getEditTextName() {
+    return binding.textinputName;
+  }
+
+  public TextInputEditText getEditTextValue() {
+    return binding.textinputValue;
   }
 
   public void show() {
     alertDialog.show();
   }
   
-  private void checkNameAndValueErrors(List<Attribute> listString, TextInputLayout nameLayout, TextInputLayout valueLayout, String currentName, String name, String value, AlertDialog dialog) {
-    if (checkNameErrors(listString, nameLayout, currentName, name, dialog) && checkValueErrors(valueLayout, value, dialog)) {
+  public void setTextWatcher() {
+    getEditTextName().addTextChangedListener(getTextWatcher());
+    getEditTextValue().addTextChangedListener(getTextWatcher());
+  }
+
+  private TextWatcher getTextWatcher() {
+    return new TextWatcher() {
+      @Override
+      public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {}
+
+      @Override
+      public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
+        checkNameAndValueErrors(
+            binding.textInputLayoutName,
+            binding.textInputLayoutValue,
+            binding.textinputName.getText().toString(),
+            binding.textinputValue.getText().toString(),
+            alertDialog);
+      }
+
+      @Override
+      public void afterTextChanged(Editable p1) {}
+    };
+  }
+
+  private void checkNameAndValueErrors(TextInputLayout nameLayout, TextInputLayout valueLayout, String name, String value, AlertDialog dialog) {
+    if (checkNameErrors(nameLayout, name, dialog) && checkValueErrors(valueLayout, value, dialog)) {
       dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(true);
       return;
     }
     dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
   }
 
-  private boolean checkNameErrors(List<Attribute> listString, TextInputLayout nameLayout, String currentName, String name, AlertDialog dialog) {
-    if (!Validator.isValidStringName(name, currentName, listString)) {
+  private boolean checkNameErrors(TextInputLayout nameLayout, String name, AlertDialog dialog) {
+    if (!Validator.isValidStringName(name)) {
       nameLayout.setErrorEnabled(true);
       nameLayout.setError("Invalid name!");
       return false;

@@ -20,7 +20,7 @@ import io.github.rosemoe.sora.langs.textmate.registry.ThemeRegistry;
 
 public class EditorFragment extends Fragment {
   private FragmentEditorBinding binding;
-
+  
   private String preset_xml =
       "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
           + "<resources>\n"
@@ -49,6 +49,7 @@ public class EditorFragment extends Fragment {
   @Override
   public void onStart() {
     super.onStart();
+    getActivity().invalidateOptionsMenu();
     String code = XmlGeneratorUtils.getInstance().getGeneratedCode();
     if (code != null && !code.isEmpty()) {
       binding.editor.setText(code);
@@ -57,7 +58,9 @@ public class EditorFragment extends Fragment {
 
   @Override
   public void onPause() {
-    XmlGeneratorUtils.getInstance().setCode(binding.editor.getText().toString());
+    XmlGeneratorUtils.getInstance().setCode(
+      binding.editor.getText().toString()
+    );
     super.onPause();
   }
 
@@ -91,13 +94,13 @@ public class EditorFragment extends Fragment {
     updateEditorScheme();
     updateEditorLanguage();
   }
-
+  
   private void setupSymbolInput() {
     binding.symbolInput.setBackgroundColor(SurfaceColors.SURFACE_0.getColor(getContext()));
     binding.symbolInput.bindEditor(binding.editor);
     binding.symbolInput.addSymbols(
-        new String[] {"→", "<", ">", "/", "=", "\"", ":", "!", "?"},
-        new String[] {"\t", "<>", ">", "/", "=", "\"\"", ":", "!", "?"});
+      new String[] {"→", "<", ">", "/", "=", "\"", ":", "!", "?"},
+      new String[] {"\t", "<>", ">", "/", "=", "\"\"", ":", "!", "?"});
     binding.symbolInput.forEachButton((b) -> b.setTypeface(jetBrainsMono()));
   }
 
@@ -130,7 +133,7 @@ public class EditorFragment extends Fragment {
     int uiMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
     return uiMode == Configuration.UI_MODE_NIGHT_YES;
   }
-
+  
   public static EditorFragment newInstance() {
     EditorFragment fragment = new EditorFragment();
     fragment.setRetainInstance(true);

@@ -10,29 +10,30 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.blankj.utilcode.util.ToastUtils;
-import com.raredev.stringeditor.adapter.StringsAdapter;
+import com.raredev.stringeditor.adapter.ElementsAdapter;
 import com.raredev.stringeditor.callback.DialogCallback;
 import com.raredev.stringeditor.callback.ItemMoveCallBack;
-import com.raredev.stringeditor.databinding.FragmentAttributesListBinding;
+import com.raredev.stringeditor.databinding.FragmentElementListBinding;
 import com.raredev.stringeditor.dialog.AttributeDialog;
-import com.raredev.stringeditor.model.Attribute;
+import com.raredev.stringeditor.model.*;
 import com.raredev.stringeditor.utils.XmlGeneratorUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class AttributesListFragment extends Fragment implements ItemMoveCallBack.ItemMoveListener {
-  private FragmentAttributesListBinding binding;
+public class ElementListFragment extends Fragment implements ItemMoveCallBack.ItemMoveListener {
+  private FragmentElementListBinding binding;
 
-  private List<Attribute> listString = new ArrayList<>();
-  private StringsAdapter adapter;
+  private List<BaseElement> listElements = new ArrayList<>();
+  private ElementsAdapter adapter;
 
   private DataObserver observer;
 
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    binding = FragmentAttributesListBinding.inflate(inflater, container, false);
+  public View onCreateView(
+      LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    binding = FragmentElementListBinding.inflate(inflater, container, false);
     return binding.getRoot();
   }
 
@@ -45,11 +46,7 @@ public class AttributesListFragment extends Fragment implements ItemMoveCallBack
   @Override
   public void onStart() {
     super.onStart();
-    String code = XmlGeneratorUtils.getInstance().getGeneratedCode();
-    if (code != null) {
-      XmlGeneratorUtils.getInstance().xmlToList(code, listString);
-      adapter.notifyDataSetChanged();
-    }
+    getActivity().invalidateOptionsMenu();
   }
 
   @Override
@@ -61,7 +58,7 @@ public class AttributesListFragment extends Fragment implements ItemMoveCallBack
   
   @Override
   public boolean onItemMove(RecyclerView.ViewHolder holder, int fromPosition, int toPosition) {
-    Collections.swap(listString, fromPosition, toPosition);
+    Collections.swap(listElements, fromPosition, toPosition);
     adapter.notifyItemMoved(fromPosition, toPosition);
     return true;
   }
@@ -72,30 +69,48 @@ public class AttributesListFragment extends Fragment implements ItemMoveCallBack
   }
 
   private void init() {
-    adapter = new StringsAdapter(listString);
+    adapter = new ElementsAdapter(listElements);
     observer = new DataObserver();
 
     ItemTouchHelper touchHelper = new ItemTouchHelper(new ItemMoveCallBack(this));
-    touchHelper.attachToRecyclerView(binding.listString);
+    touchHelper.attachToRecyclerView(binding.rvElements);
     
     adapter.registerAdapterDataObserver(observer);
     adapter.setTouchHelper(touchHelper);
 
-    binding.listString.setLayoutManager(new LinearLayoutManager(getContext()));
-    binding.listString.setAdapter(adapter);
+    binding.rvElements.setLayoutManager(new LinearLayoutManager(getContext()));
+    binding.rvElements.setAdapter(adapter);
 
-    binding.fab.setOnClickListener((v) -> dialogNewString());
+    binding.fab.setOnClickListener((v) -> dialogNewElement());
 
-    adapter.setStringListener(
-        new StringsAdapter.StringListener() {
+    adapter.setElementListener(
+        new ElementsAdapter.ElementListener() {
           @Override
-          public void onStringClick(View v, int pos) {}
+          public void onElementClick(View v, int pos) {}
 
           @Override
-          public void onStringLongClick(View v, int pos) {
+          public void onElementLongClick(View v, int pos) {
             showPopupMenu(v, pos);
           }
         });
+
+    binding.rvElements.addOnScrollListener(
+        new RecyclerView.OnScrollListener() {
+          @Override
+          public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            if (dy < 0) {
+              // Scrolling up
+              binding.fab.extend();
+            } else {
+              // Scrolling down
+              binding.fab.shrink();
+            }
+          }
+        });
+
+    listElements.addAll(XmlGeneratorUtils.getInstance().xmlToList());
+    adapter.notifyDataSetChanged();
   }
 
   private void showPopupMenu(View v, int pos) {
@@ -106,9 +121,9 @@ public class AttributesListFragment extends Fragment implements ItemMoveCallBack
         (item) -> {
           final var title = item.getTitle();
           if (title == "Edit") {
-            dialogEditString(pos);
+            dialogEditElement(pos);
           } else if (title == "Remove") {
-            listString.remove(pos);
+            listElements.remove(pos);
             ToastUtils.showShort("Removed");
             adapter.notifyDataSetChanged();
           }
@@ -117,29 +132,33 @@ public class AttributesListFragment extends Fragment implements ItemMoveCallBack
     menu.show();
   }
 
-  private void dialogEditString(int pos) {
-    AttributeDialog dialog = new AttributeDialog(requireActivity(), listString, pos,
+  private void dialogEditElement(int pos) {
+    AttributeDialog dialog = new AttributeDialog(requireActivity(),
       new DialogCallback() {
         @Override
         public void onPositiveButtonClicked(String name, String value) {
-          listString.set(pos, new Attribute("string", name, value));
+          listElements.set(pos, BaseElement.newString(name, value));
           adapter.notifyDataSetChanged();
         }
     });
-    dialog.setTitle("Edit String");
+    dialog.getEditTextName().setText(listElements.get(pos).getName());
+    dialog.getEditTextValue().setText((String)listElements.get(pos).getValue());
+    dialog.setTitle("Edit Element");
+    dialog.setTextWatcher();
     dialog.show();
   }
 
-  private void dialogNewString() {
-    AttributeDialog dialog = new AttributeDialog(requireActivity(), listString, -1,
+  private void dialogNewElement() {
+    AttributeDialog dialog = new AttributeDialog(requireActivity(),
       new DialogCallback() {
         @Override
         public void onPositiveButtonClicked(String name, String value) {
-          listString.add(new Attribute("string", name, value));
+          listElements.add(BaseElement.newString(name, value));
           adapter.notifyDataSetChanged();
         }
     });
-    dialog.setTitle("New String");
+    dialog.setTitle("New Element");
+    dialog.setTextWatcher();
     dialog.show();
   }
 
@@ -147,12 +166,12 @@ public class AttributesListFragment extends Fragment implements ItemMoveCallBack
     @Override
     public void onChanged() {
       super.onChanged();
-      XmlGeneratorUtils.getInstance().generateXml(listString);
+      XmlGeneratorUtils.getInstance().generateXml(listElements);
     }
   }
 
-  public static AttributesListFragment newInstance() {
-    AttributesListFragment fragment = new AttributesListFragment();
+  public static ElementListFragment newInstance() {
+    ElementListFragment fragment = new ElementListFragment();
     fragment.setRetainInstance(true);
     return fragment;
   }

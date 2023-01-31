@@ -1,5 +1,3 @@
-# String Editor
-- Edit Strings in an easier way
 
 # Screenshots:
 <div align="center">

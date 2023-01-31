@@ -39,9 +39,9 @@
     android:id="@+id/fab"
     android:layout_gravity="right|bottom"
     android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
     android:layout_marginEnd="20dp"
     android:layout_marginBottom="60dp"
-    android:layout_width="wrap_content"
-    android:text="Copy"
-    app:icon="@drawable/content_copy" />
+    app:icon="@drawable/content_copy"
+    android:text="Copy" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

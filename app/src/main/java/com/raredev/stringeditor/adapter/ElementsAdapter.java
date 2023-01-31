@@ -9,37 +9,38 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import com.raredev.stringeditor.R;
-import com.raredev.stringeditor.databinding.StringItemBinding;
-import com.raredev.stringeditor.model.Attribute;
+import com.raredev.stringeditor.databinding.ElementItemBinding;
+import com.raredev.stringeditor.model.BaseElement;
 import java.util.List;
 
-public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
-  private List<Attribute> listStrings;
+public class ElementsAdapter extends RecyclerView.Adapter<ElementsAdapter.VH> {
+  private List<BaseElement> listElements;
   
   private ItemTouchHelper touchHelper;
-  private StringListener listener;
+  private ElementListener listener;
   
-  public StringsAdapter(List<Attribute> listStrings) {
-    this.listStrings = listStrings;
+  public ElementsAdapter(List<BaseElement> listElements) {
+    this.listElements = listElements;
   }
 
   @Override
   public VH onCreateViewHolder(ViewGroup parent, int position) {
-    return new VH(StringItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+    return new VH(ElementItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
   }
 
   @Override
   public void onBindViewHolder(VH holder, int position) {
-    Attribute model = listStrings.get(position);
+    BaseElement element = listElements.get(position);
 
-    holder.tvName.setText(model.getName());
-    holder.tvValue.setText(model.getValue());
+    holder.tvName.setText(element.getName());
+    if (element.getValue() instanceof String) {
+      holder.tvValue.setText((String)element.getValue());
+    }
 
-    holder.itemView.setOnClickListener((v) -> listener.onStringClick(v, position));
+    holder.itemView.setOnClickListener((v) -> listener.onElementClick(v, position));
     holder.itemView.setOnLongClickListener(
         (v) -> {
-          listener.onStringLongClick(v, position);
+          listener.onElementLongClick(v, position);
           return true;
         });
 
@@ -54,26 +55,26 @@ public class StringsAdapter extends RecyclerView.Adapter<StringsAdapter.VH> {
     this.touchHelper = touchHelper;
   }
 
-  public void setStringListener(StringListener listener) {
+  public void setElementListener(ElementListener listener) {
     this.listener = listener;
   }
 
-  public interface StringListener {
-    void onStringClick(View v, int pos);
-    void onStringLongClick(View v, int pos);
+  public interface ElementListener {
+    void onElementClick(View v, int pos);
+    void onElementLongClick(View v, int pos);
   }
 
   @Override
   public int getItemCount() {
-    return listStrings.size();
+    return listElements.size();
   }
 
   public class VH extends RecyclerView.ViewHolder {
-    public StringItemBinding binding;
+    public ElementItemBinding binding;
     public TextView tvName, tvValue;
     public ImageView imgDrag;
 
-    public VH(@NonNull StringItemBinding binding) {
+    public VH(@NonNull ElementItemBinding binding) {
       super(binding.getRoot());
       this.binding = binding;
       tvName = binding.name;

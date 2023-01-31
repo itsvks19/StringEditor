@@ -7,7 +7,7 @@
   android:layout_width="match_parent">
 
   <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/list_string"
+    android:id="@+id/rv_elements"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 
@@ -15,8 +15,8 @@
     android:id="@+id/fab"
     android:layout_gravity="right|bottom"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
     android:layout_width="wrap_content"
+    android:layout_margin="20dp"
     app:icon="@drawable/ic_add"
-    android:text="New String" />
+    android:text="New Element" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
