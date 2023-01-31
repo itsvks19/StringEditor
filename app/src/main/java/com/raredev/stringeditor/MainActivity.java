@@ -10,6 +10,7 @@ import com.raredev.stringeditor.fragment.*;
 
 public class MainActivity extends AppCompatActivity {
   private ActivityMainBinding binding;
+  private Menu menu;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     menu.add(0, 0, 0, "Visual Editor");
+    this.menu = menu;
     return true;
   }
 
@@ -53,5 +55,16 @@ public class MainActivity extends AppCompatActivity {
         .replace(R.id.container, newFragment, tag)
         .addToBackStack(null)
         .commit();
+  }
+
+  @Override
+  public void onBackPressed() {
+    for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+      if (fragment.getTag().equals("editorFragment")) finishAffinity();
+      else if (fragment.getTag().equals("attributesListFragment")) {
+        replaceFragment(EditorFragment.newInstance(), "editorFragment");
+        if (menu != null) menu.getItem(0).setTitle("Visual Editor");
+      }
+    }
   }
 }
